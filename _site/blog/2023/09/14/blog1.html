@@ -496,7 +496,7 @@
         />
       </svg>
     </div>
-    <a href="https://www.baseer.ai">Home</a>
+    <a  href="https://www.baseer.ai">Home</a>
     <a id="solutionsLinkMob" href="/" style="display: flex">
       Solutions
       <svg
@@ -531,14 +531,14 @@
         Parking Management System
       </a>
     </div>
-    <a href="/resources">Resources</a>
+    <a href="https://mujaheed13.github.io/jekyll/">Resources</a>
     <a href="https://www.baseer.ai/contact">Contact</a>
   </div>
   <a href="https://www.baseer.ai">
     <img src="https://www.baseer.ai/baseer-logo.svg" alt="Baseer Logo" />
   </a>
   <nav class="nav">
-    <a href="https://www.baseer.ai">Home</a>
+    <a id="homeLink" href="https://www.baseer.ai">Home</a>
     <a href="/" id="solutionsLink">
       Solutions
       <svg
@@ -572,7 +572,7 @@
         >Parking Management System</a
       >
     </div>
-    <a href="/resources">Resources</a>
+    <a href="https://mujaheed13.github.io/jekyll/">Resources</a>
     <a href="https://www.baseer.ai/contact">Contact</a>
   </nav>
 
@@ -632,6 +632,13 @@
       : (sNavMob.style.display = "flex");
     sNavMobVisibility = !sNavMobVisibility;
   });
+
+  const homeLink = document.getElementById("homeLink");
+  homeLink.addEventListener("click", (e)=>{
+    e.preventDefault();
+    console.log("I am here!!!!");
+    window.location.href = "https://www.baseer.ai/"
+  })
 </script>
 
 
@@ -887,7 +894,7 @@ div {
       <div>
         <h3>Links</h3>
         <a href="https://www.baseer.ai/">Home</a>
-        <a href="/resources">Resources</a>
+        <a href="https://mujaheed13.github.io/jekyll/">Resources</a>
         <a href="https://www.baseer.ai/contact">Contact</a>
       </div>
       <div>
