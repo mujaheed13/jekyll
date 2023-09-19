@@ -4,6 +4,21 @@
     padding: 0%;
   }
 
+  p,
+  b, a{
+    font-family: "Poppins", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  div {
+    font-family: "Montserrat", sans-serif;
+  }
+
   .container {
     width: 50%;
     margin: 6vh auto;
@@ -130,13 +145,9 @@
     <hr style="margin-top: 2rem" />
     <div class="tags">
       <p>Tags :</p>
-      {% if page.tags %} 
-        {% for tag in page.tags %} 
-        <p class="tag">
-          {{ tag }}
-        </p>
-        {% endfor %} 
-      {% endif %}
+      {% if page.tags %} {% for tag in page.tags %}
+      <p class="tag">{{ tag }}</p>
+      {% endfor %} {% endif %}
 
       <!-- <p class="tag">{{ page.tags[0] }}, {{ page.tags[1] }}</p> -->
       <!-- {blog.attributes.tags &&
