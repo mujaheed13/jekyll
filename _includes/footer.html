@@ -1,0 +1,208 @@
+<style>
+    .footer {
+  display: flex;
+  margin-top: 0;
+  justify-content: space-evenly;
+  padding: 6vh 6vw;
+  border-top: 3px solid #1e4387;
+  background-color: white;
+}
+
+
+
+.footer > :nth-child(1) {
+  padding: 5%;
+  width: 20%;
+  padding-top: 2rem;
+}
+
+.footer > :nth-child(1) img {
+  width: 70%;
+  height: auto;
+  margin: auto;
+}
+
+.footer > :nth-child(2) {
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+  margin-left: 8vw;
+  justify-content: space-evenly;
+}
+
+.footer > :nth-child(2) > :nth-child(1),
+.footer > :nth-child(2) > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer > :nth-child(2) > :nth-child(1) > a,
+.footer > :nth-child(2) > :nth-child(2) > a {
+  text-decoration: none;
+  font-size: 0.7rem;
+  color: black;
+  opacity: 0.5;
+  margin: 3% 0;
+}
+
+.footer > :nth-child(2) > :nth-child(2) > a {
+  margin: 10% 0;
+}
+
+.footer > :nth-child(2) > div {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.footer > :nth-child(2) > :nth-child(1) > a:hover,
+.footer > :nth-child(2) > :nth-child(2) > a:hover {
+  color: blue;
+}
+
+.socialMediaIcons img {
+  padding: 0px 4px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.socialMediaIcons a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 880px) {
+  .footer > :nth-child(1) img {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer > :nth-child(2) > :nth-child(1) > a,
+  .footer > :nth-child(2) > :nth-child(2) > a {
+    font-size: 0.72rem;
+  }
+
+  .footer > :nth-child(1) > p {
+    font-size: 0.7rem;
+  }
+
+  .footer {
+    padding: 4vh 4vw;
+  }
+  .footer > :nth-child(1) {
+    width: 30%;
+  }
+  .footer > :nth-child(2) {
+    margin-left: 0;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding: 3vh 3vw;
+  }
+
+  .footer > :nth-child(1) {
+    width: 50%;
+    margin-left: 5vw;
+    padding: 0.5rem;
+  }
+
+  .footer > :nth-child(1) img {
+    padding-left: 0.5rem;
+  }
+
+  .footer > :nth-child(2) {
+    margin: auto;
+    width: 100%;
+    grid-template-areas:
+      "a a b"
+      "a a c";
+  }
+
+  .footer > :nth-child(2) > :nth-child(1) {
+    grid-area: a;
+  }
+
+  .footer > :nth-child(2) > :nth-child(2) {
+    grid-area: b;
+  }
+  .footer > :nth-child(2) > :nth-child(3) {
+    grid-area: c;
+  }
+
+  .footer > :nth-child(2) > :nth-child(2),
+  .footer > :nth-child(2) > :nth-child(3) {
+    margin: 0;
+  }
+
+  .footer > :nth-child(2) > :nth-child(1) > a,
+  .footer > :nth-child(2) > :nth-child(2) > a {
+    font-size: 0.68rem;
+  }
+
+  .footer > :nth-child(1) > p {
+    font-size: 0.68rem;
+  }
+
+  .socialMediaIcons > img {
+    padding: 0px 1px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+</style>
+<div class="footer"
+>
+    <div>
+      <a href="/">
+        <Image src="https://www.baseer.ai/_next/static/media/baseer-logo-dark.e30199d4.svg" alt="Baseer Logo" />
+      </a>
+    </div>
+    <div>
+      <div>
+        <h3>Solutions</h3>
+        <a href="/turn-around-management-system">
+          Turn Around Management System
+        </a>
+        <a href="/queue-management-system">Queue Management System</a>
+        <a href="/face-recognition-system">Face Recognition System</a>
+        <a href="/crowd-management-system">Crowd Management System</a>
+        <a href="/parking-management-system">
+          Parking Management System
+        </a>
+      </div>
+      <div>
+        <h3>Links</h3>
+        <a href="/">Home</a>
+        <a href="/resources">Resources</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="socialMediaIcons">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/people/Baseer-AI/100090610397170/"
+          >
+            <Image placeholder="blur" src="https://www.baseer.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffacebook.1cd6478a.png&w=640&q=75" alt="Facebook" />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/baseer-ai/"
+          >
+            <Image placeholder="blur" src="https://www.baseer.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flinkedin.fae62e77.png&w=640&q=75" alt="LinkedIn" />
+          </a>
+          <a target="_blank" href="https://www.instagram.com/baseer.ai/">
+            <Image placeholder="blur" src="https://www.baseer.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Finstagram.da7a9641.png&w=640&q=75" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

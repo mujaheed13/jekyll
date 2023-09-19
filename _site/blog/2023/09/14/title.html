@@ -1,0 +1,859 @@
+<style>
+  body {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .container {
+    width: 50%;
+    margin: 6vh auto;
+  }
+
+  .container p:not(.date, .title, .author) {
+    font-size: 1.1em;
+    line-height: 1.5em;
+  }
+
+  .container p,
+  .container b {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .category {
+    background-color: rgb(20, 88, 88);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    text-transform: capitalize;
+  }
+
+  .tags {
+    display: flex;
+  }
+
+  .tags > p {
+    margin: 1.5rem 1rem 1.5rem 0rem;
+    padding: 0.5rem;
+    padding-left: 0;
+  }
+
+  .tag {
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+
+  .container h1,
+  .container h2,
+  .container h3,
+  .container h4,
+  .container h5,
+  .container h6 {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .date,
+  .title,
+  .author {
+    text-align: center;
+  }
+
+  .title {
+    margin: 0.3rem auto;
+  }
+
+  .date {
+    opacity: 0.5;
+    margin-left: 1rem;
+  }
+
+  .author {
+    opacity: 0.7;
+    margin-top: 0;
+  }
+
+  .hr {
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    .container {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .container {
+      width: 80%;
+    }
+
+    .container p:not(.date, .title, .author) {
+      font-size: 0.8em;
+    }
+
+    .title {
+      font-size: 1.6em;
+    }
+
+    .date,
+    .author {
+      font-size: 0.8em;
+    }
+  }
+</style>
+<body>
+  <style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(48, 48, 48);
+    padding: 1.5vh 3.5vh;
+    align-items: center;
+  }
+
+  .header > img {
+    cursor: pointer;
+    margin: auto 0;
+  }
+
+  .nav {
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    /* padding-top: 2vh; */
+  }
+
+  .nav > a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .carousel > div > div > div {
+    margin: auto;
+  }
+
+  .reqDemoBtn {
+    border-radius: 0;
+    padding: 10% 5%;
+    text-transform: capitalize;
+    backdrop-filter: blur(6px);
+    color: white;
+    width: 9.4rem;
+    font-weight: 600;
+    background-color: rgba(160, 160, 160, 0.5);
+    border: none;
+  }
+
+  .reqDemoBtn:hover {
+    background-color: rgba(48, 48, 48, 0.5);
+  }
+
+  .introVideoCont {
+    background: linear-gradient(90deg, #000 29.23%, rgba(0, 0, 0, 0) 100%);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .introVideo {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: -100;
+    right: 0;
+  }
+
+  .introText {
+    color: white;
+    font-size: clamp(1rem, 0.5rem + 10vw, 2.7rem);
+    font-weight: 700;
+    width: 45%;
+    margin-top: 20vh;
+    margin-left: 8vw;
+    letter-spacing: 1.048px;
+  }
+
+  .p {
+    color: white;
+    opacity: 0.5;
+    margin-left: 8vw;
+    margin-top: 0.8rem;
+    letter-spacing: 0.811px;
+  }
+
+  .btn {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--secondary-color);
+    border-radius: 50px;
+    box-shadow: none;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .brandLogos {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    bottom: 3vh;
+    justify-content: space-evenly;
+  }
+
+  .btns {
+    width: 40%;
+    display: flex;
+    margin-left: 8vw;
+    padding: 1.8rem 0rem;
+  }
+
+  .btns a {
+    text-decoration: none;
+  }
+
+  .exploreUseCasesBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 0.8rem 0.4rem 0.8rem 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .exploreUseCasesImg {
+    width: 2.5em;
+    margin-left: 0.5rem;
+    border-radius: 50px;
+  }
+
+  .btns button {
+    border-radius: 0;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .btns :nth-child(2) button {
+    background-color: white;
+    color: var(--secondary-color);
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    margin-left: 10%;
+    font-weight: 600;
+  }
+
+  .brandLogos > img {
+    object-fit: contain;
+  }
+
+  .hamburgerMenu {
+    display: none;
+  }
+
+  @media screen and (max-height: 725px) {
+    .brandLogos {
+      margin-top: 4%;
+      position: static;
+    }
+  }
+
+  @media screen and (max-width: 966px) {
+    .introText {
+      width: 70%;
+    }
+
+    .btns {
+      width: 60%;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    .nav {
+      width: 60%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .brandLogos {
+      bottom: 0vh;
+    }
+
+    .brandLogos div {
+      width: 17%;
+    }
+    .brandLogos img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  #solutionsNav {
+    display: flex;
+    padding: 0.5%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    border-radius: 0.125rem;
+    top: 70px;
+    background: rgba(1, 1, 1, 0.3);
+    z-index: 110;
+    backdrop-filter: blur(6px);
+    visibility: hidden;
+  }
+
+  #solutionsNav > a {
+    margin: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* --MOBNAV--- */
+  #MobNav {
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 111;
+    padding: 5%;
+    visibility: hidden;
+  }
+
+  #MobNav a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    padding: 5% 0;
+  }
+
+  #MobNav > a:active {
+    background-color: #202020;
+  }
+
+  #sNavMob {
+    /* display: flex; */
+    flex-direction: column;
+    margin-left: 8%;
+    /* visibility: collapse; */
+    display: none;
+  }
+
+  /* ------  */
+
+  @media screen and (min-height: 900px) {
+    #solutionsNav {
+      top: 100px;
+    }
+  }
+
+  /* Mobile Screens */
+  @media screen and (max-width: 640px) {
+    .nav {
+      display: none;
+    }
+
+    .reqDemoBtn {
+      display: none;
+    }
+
+    .introVideoCont {
+      background: linear-gradient(180deg, #000 29.23%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .introText {
+      width: fit-content;
+      font-size: 1.8rem;
+      margin-top: 15vh;
+      margin-left: 0;
+      padding-left: 10vw;
+    }
+
+    .btns {
+      width: 60%;
+      flex-direction: column;
+    }
+
+    .btns button {
+      width: 80%;
+    }
+
+    .btns :nth-child(2) button {
+      width: 80%;
+      margin-left: 0%;
+    }
+
+    .exploreUseCasesBtn {
+      margin-bottom: 1rem;
+    }
+
+    .hamburgerMenu {
+      display: block;
+    }
+
+    .brandLogos {
+      width: 100%;
+      margin-top: 0;
+      overflow-x: auto;
+      justify-content: start;
+    }
+
+    .brandLogos img {
+      margin: 0 10px;
+    }
+
+    .exploreUseCasesImg {
+      margin-left: 0.5rem;
+    }
+  }
+
+  /* ---Solutions Nav---- */
+</style>
+<header class="header">
+  <div id="MobNav">
+    <div
+      style="
+        display: flex;
+        text-align: right;
+        width: 100%;
+        justify-content: flex-end;
+      "
+    >
+      <!-- close Icon -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        fill="none"
+        style="
+          color: white;
+          text-align: right;
+          padding-right: 10%;
+          padding-bottom: 10px;
+        "
+        id="closeBtn"
+      >
+        <path
+          d="M7 8L23 24"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M7 8L23 24"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M23 8L7 24"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M23 8L7 24"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
+    <a href="/">Home</a>
+    <a id="solutionsLinkMob" href="/" style="display: flex">
+      Solutions
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="8"
+        height="6"
+        viewBox="0 0 8 6"
+        fill="none"
+        style="position: relative; top: 7px; left: 5px"
+      >
+        <path
+          d="M7.21843 0.535919H0.283203L3.75082 5.73734L7.21843 0.535919Z"
+          fill="white"
+        />
+      </svg>
+      <!-- Drop down arrow -->
+    </a>
+    <div class="sNav" id="sNavMob">
+      <a href="/turn-around-management-system">
+        Turn Around Management System
+      </a>
+      <a href="/queue-management-system">Queue Management System</a>
+      <a href="/face-recognition-system">Face Recognition System</a>
+      <a href="/crowd-management-system">Crowd Management System</a>
+      <a href="/parking-management-system"> Parking Management System </a>
+    </div>
+    <a href="/resources">Resources</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a href="/">
+    <img src="https://www.baseer.ai/baseer-logo.svg" alt="Baseer Logo" />
+  </a>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/" id="solutionsLink">
+      Solutions
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="8"
+        height="6"
+        viewBox="0 0 8 6"
+        fill="none"
+        style="position: relative; bottom: 2px;"
+      >
+        <path
+          d="M7.21843 0.535919H0.283203L3.75082 5.73734L7.21843 0.535919Z"
+          fill="white"
+        />
+      </svg>
+    </a>
+    <div className="solutionsNav" id="solutionsNav">
+      <a href="/turn-around-management-system">
+        Turn Around Management System
+      </a>
+      <a href="/queue-management-system">Queue Management System</a>
+      <a href="/face-recognition-system">Face Recognition System</a>
+      <a href="/crowd-management-system">Crowd Management System</a>
+      <a href="/parking-management-system">Parking Management System</a>
+    </div>
+    <a href="/resources">Resources</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <a href="/contact">
+    <button class="reqDemoBtn">Request Demo</button>
+  </a>
+  <!-- https://www.baseer.ai/hambergermenu.svg -->
+  <img
+    src="https://www.baseer.ai/hambergermenu.svg"
+    alt="hamburgerMenu"
+    class="hamburgerMenu"
+    id="ham"
+  />
+</header>
+<script>
+  const solutionsLink = document.getElementById("solutionsLink");
+  const solutionsNav = document.getElementById("solutionsNav");
+
+  let sNavVisibility = false;
+  solutionsLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    sNavVisibility
+      ? (solutionsNav.style.visibility = "hidden")
+      : (solutionsNav.style.visibility = "visible");
+    sNavVisibility = !sNavVisibility;
+    // console.log(solutionsNav.style.visibility);
+  });
+
+  // -------HAM--------
+  const ham = document.getElementById("ham");
+  const MobNav = document.getElementById("MobNav");
+  let mobNavVisibility = false;
+  ham.addEventListener("click", () => {
+    mobNavVisibility
+      ? (MobNav.style.visibility = "hidden")
+      : (MobNav.style.visibility = "visible");
+    mobNavVisibility = !mobNavVisibility;
+    // console.log("OPEN");
+  });
+  const closeBtn = document.getElementById("closeBtn");
+  closeBtn.addEventListener("click", () => {
+    mobNavVisibility
+      ? (MobNav.style.visibility = "hidden")
+      : (MobNav.style.visibility = "visible");
+    mobNavVisibility = !mobNavVisibility;
+    // console.log("CLOSE");
+  });
+
+  // --- Solutions Nav Mobile ---
+  const sNavMob = document.getElementById("sNavMob");
+  const solutionsLinkMob = document.getElementById("solutionsLinkMob");
+  let sNavMobVisibility = false;
+  solutionsLinkMob.addEventListener("click", (e)=>{
+    e.preventDefault();
+    sNavMobVisibility
+      ? (sNavMob.style.display = "none")
+      : (sNavMob.style.display = "flex");
+    sNavMobVisibility = !sNavMobVisibility;
+  })
+</script>
+
+
+  <div class="container">
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        margin: auto;
+        padding: 0;
+      "
+    >
+      <p class="category" style="color: white; margin: 0">
+        blog
+      </p>
+      <p class="date">14 Sep 2023</p>
+    </div>
+    <h1 class="title">Title</h1>
+    <p class="author">
+      Published by
+      <a target="_blank" href="https://linkedin.com/">
+        Author
+      </a>
+    </p>
+    <hr class="hr" />
+    <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Tincidunt augue interdum velit euismod in pellentesque massa. Mauris sit amet massa vitae tortor condimentum lacinia quis. Eu augue ut lectus arcu bibendum. Vel facilisis volutpat est velit egestas dui. Dolor sit amet consectetur adipiscing. Quis eleifend quam adipiscing vitae proin. Eget sit amet tellus cras adipiscing enim eu turpis. Pretium fusce id velit ut tortor pretium. Tortor dignissim convallis aenean et tortor at risus viverra. Est lorem ipsum dolor sit. Cum sociis natoque penatibus et magnis dis parturient montes nascetur. Blandit cursus risus at ultrices mi tempus imperdiet nulla. Diam phasellus vestibulum lorem sed. Eros in cursus turpis massa tincidunt dui ut ornare. At risus viverra adipiscing at in tellus. Leo urna molestie at elementum eu facilisis. Sed adipiscing diam donec adipiscing. Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam.</p>
+
+<p>Lacus vel facilisis volutpat est velit egestas dui. Arcu dui vivamus arcu felis bibendum. Urna neque viverra justo nec ultrices dui sapien. Viverra nam libero justo laoreet sit amet cursus sit. Ut porttitor leo a diam sollicitudin. Cras tincidunt lobortis feugiat vivamus. Porttitor rhoncus dolor purus non enim praesent elementum. Semper risus in hendrerit gravida rutrum quisque non. In arcu cursus euismod quis. Duis ut diam quam nulla porttitor. Libero enim sed faucibus turpis. Risus nec feugiat in fermentum. In aliquam sem fringilla ut morbi tincidunt augue interdum velit. Nisi porta lorem mollis aliquam ut porttitor. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Praesent elementum facilisis leo vel fringilla est ullamcorper. In metus vulputate eu scelerisque. Tincidunt lobortis feugiat vivamus at augue eget.</p>
+
+<p>Est sit amet facilisis magna etiam tempor orci. Velit aliquet sagittis id consectetur purus ut faucibus. Penatibus et magnis dis parturient montes nascetur ridiculus. Lobortis feugiat vivamus at augue eget arcu. Sit amet dictum sit amet. Maecenas accumsan lacus vel facilisis. Posuere ac ut consequat semper viverra. Donec massa sapien faucibus et molestie. Vitae elementum curabitur vitae nunc sed velit dignissim sodales. Est placerat in egestas erat.</p>
+
+<p>Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Eget gravida cum sociis natoque penatibus et. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Arcu vitae elementum curabitur vitae. Ullamcorper dignissim cras tincidunt lobortis. Amet justo donec enim diam vulputate ut pharetra. Gravida rutrum quisque non tellus. Amet tellus cras adipiscing enim eu. Quis viverra nibh cras pulvinar mattis nunc sed. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dignissim suspendisse in est ante in nibh.</p>
+
+<p>Vulputate ut pharetra sit amet aliquam id diam maecenas ultricies. Eget velit aliquet sagittis id. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Lectus arcu bibendum at varius vel. Elit eget gravida cum sociis natoque penatibus et magnis. Sit amet mauris commodo quis imperdiet massa. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Diam sit amet nisl suscipit adipiscing bibendum est. In cursus turpis massa tincidunt. Ornare suspendisse sed nisi lacus. Tellus orci ac auctor augue. Ullamcorper malesuada proin libero nunc consequat interdum varius sit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. In mollis nunc sed id. Aenean et tortor at risus viverra adipiscing at in tellus. Ut ornare lectus sit amet est placerat in egestas erat. Pulvinar proin gravida hendrerit lectus a. Feugiat pretium nibh ipsum consequat nisl vel pretium. Ut etiam sit amet nisl purus in mollis. Est ultricies integer quis auctor elit sed vulputate.</p>
+</div>
+    <hr style="margin-top: 2rem" />
+    <div class="tags">
+      <p>Tags :</p>
+       
+         
+        <p class="tag">
+          tag1
+        </p>
+         
+        <p class="tag">
+          tag2
+        </p>
+         
+      
+
+      <!-- <p class="tag">tag1, tag2</p> -->
+      <!-- {blog.attributes.tags &&
+      blog.attributes.tags.map((tag: string, index: number) => {
+        return (
+          <p class={styles.tag} key={`${tag} ${index}`}>
+            {tag}
+          </p>
+        );
+      })} -->
+    </div>
+  </div>
+  <style>
+    .footer {
+  display: flex;
+  margin-top: 0;
+  justify-content: space-evenly;
+  padding: 6vh 6vw;
+  border-top: 3px solid #1e4387;
+  background-color: white;
+}
+
+
+
+.footer > :nth-child(1) {
+  padding: 5%;
+  width: 20%;
+  padding-top: 2rem;
+}
+
+.footer > :nth-child(1) img {
+  width: 70%;
+  height: auto;
+  margin: auto;
+}
+
+.footer > :nth-child(2) {
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+  margin-left: 8vw;
+  justify-content: space-evenly;
+}
+
+.footer > :nth-child(2) > :nth-child(1),
+.footer > :nth-child(2) > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer > :nth-child(2) > :nth-child(1) > a,
+.footer > :nth-child(2) > :nth-child(2) > a {
+  text-decoration: none;
+  font-size: 0.7rem;
+  color: black;
+  opacity: 0.5;
+  margin: 3% 0;
+}
+
+.footer > :nth-child(2) > :nth-child(2) > a {
+  margin: 10% 0;
+}
+
+.footer > :nth-child(2) > div {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.footer > :nth-child(2) > :nth-child(1) > a:hover,
+.footer > :nth-child(2) > :nth-child(2) > a:hover {
+  color: blue;
+}
+
+.socialMediaIcons img {
+  padding: 0px 4px;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.socialMediaIcons a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 880px) {
+  .footer > :nth-child(1) img {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer > :nth-child(2) > :nth-child(1) > a,
+  .footer > :nth-child(2) > :nth-child(2) > a {
+    font-size: 0.72rem;
+  }
+
+  .footer > :nth-child(1) > p {
+    font-size: 0.7rem;
+  }
+
+  .footer {
+    padding: 4vh 4vw;
+  }
+  .footer > :nth-child(1) {
+    width: 30%;
+  }
+  .footer > :nth-child(2) {
+    margin-left: 0;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding: 3vh 3vw;
+  }
+
+  .footer > :nth-child(1) {
+    width: 50%;
+    margin-left: 5vw;
+    padding: 0.5rem;
+  }
+
+  .footer > :nth-child(1) img {
+    padding-left: 0.5rem;
+  }
+
+  .footer > :nth-child(2) {
+    margin: auto;
+    width: 100%;
+    grid-template-areas:
+      "a a b"
+      "a a c";
+  }
+
+  .footer > :nth-child(2) > :nth-child(1) {
+    grid-area: a;
+  }
+
+  .footer > :nth-child(2) > :nth-child(2) {
+    grid-area: b;
+  }
+  .footer > :nth-child(2) > :nth-child(3) {
+    grid-area: c;
+  }
+
+  .footer > :nth-child(2) > :nth-child(2),
+  .footer > :nth-child(2) > :nth-child(3) {
+    margin: 0;
+  }
+
+  .footer > :nth-child(2) > :nth-child(1) > a,
+  .footer > :nth-child(2) > :nth-child(2) > a {
+    font-size: 0.68rem;
+  }
+
+  .footer > :nth-child(1) > p {
+    font-size: 0.68rem;
+  }
+
+  .socialMediaIcons > img {
+    padding: 0px 1px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+</style>
+<div class="footer"
+>
+    <div>
+      <a href="/">
+        <Image src="https://www.baseer.ai/_next/static/media/baseer-logo-dark.e30199d4.svg" alt="Baseer Logo" />
+      </a>
+    </div>
+    <div>
+      <div>
+        <h3>Solutions</h3>
+        <a href="/turn-around-management-system">
+          Turn Around Management System
+        </a>
+        <a href="/queue-management-system">Queue Management System</a>
+        <a href="/face-recognition-system">Face Recognition System</a>
+        <a href="/crowd-management-system">Crowd Management System</a>
+        <a href="/parking-management-system">
+          Parking Management System
+        </a>
+      </div>
+      <div>
+        <h3>Links</h3>
+        <a href="/">Home</a>
+        <a href="/resources">Resources</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="socialMediaIcons">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/people/Baseer-AI/100090610397170/"
+          >
+            <Image placeholder="blur" src="https://www.baseer.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffacebook.1cd6478a.png&w=640&q=75" alt="Facebook" />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/baseer-ai/"
+          >
+            <Image placeholder="blur" src="https://www.baseer.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flinkedin.fae62e77.png&w=640&q=75" alt="LinkedIn" />
+          </a>
+          <a target="_blank" href="https://www.instagram.com/baseer.ai/">
+            <Image placeholder="blur" src="https://www.baseer.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Finstagram.da7a9641.png&w=640&q=75" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
